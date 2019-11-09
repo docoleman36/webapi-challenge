@@ -14,15 +14,6 @@ router.post('/', (req, res) => {
     });
 });
 
-router.post('/:id', async (req, res) => {
-  try {
-    const project = await db.insert(req.params.id)
-    res.status(201).json(project)
-  } catch (err) {
-    res.status(500).json({ err: "Error posting" })
-  }
-});
-
 router.get('/', async (req, res) => {
   try {
     const project = await db.get(req.params.id)
