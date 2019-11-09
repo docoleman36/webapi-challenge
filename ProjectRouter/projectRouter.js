@@ -10,7 +10,7 @@ router.post('/', (req, res) => {
     })
     .catch(error => {
       console.log(error);
-      res.status(500).json({ message: 'Error adding user' })
+      res.status(500).json({ message: 'Error adding projects' })
     });
 });
 
@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
     const project = await db.get(req.params.id)
     res.status(201).json(project)
   } catch (err) {
-    res.status(500).json({ message: 'Error getting users' })
+    res.status(500).json({ message: 'Error getting projects' })
   }
 });
 
@@ -28,7 +28,7 @@ router.get('/:id', async (req, res) => {
     const project = await db.get(req.params.id)
     res.status(201).json(project)
   } catch (err) {
-    res.status(500).json({ message: 'Error getting users' })
+    res.status(500).json({ message: 'Error getting projects' })
   }
 });
 
@@ -37,7 +37,7 @@ router.get('/:id', async (req, res) => {
     const project = await db.getProjectActions(req.params.id)
     res.status(201).json(project)
   } catch (err) {
-    res.status(500).json({ message: 'Error getting users posts' })
+    res.status(500).json({ message: 'Error getting project actions' })
   }
 });
 

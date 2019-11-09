@@ -10,7 +10,7 @@ router.post('/', (req, res) => {
     })
     .catch(error => {
       console.log(error);
-      res.status(500).json({ message: 'Error adding user' })
+      res.status(500).json({ message: 'Error adding action' })
     });
 });
 
@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
       res.status(200).json(actions);
     })
     .catch(err => {
-      res.status(500).json({ message: "Error retrieving data", err });
+      res.status(500).json({ message: "Error retrieving actions", err });
     });
 });
 
@@ -29,7 +29,7 @@ router.get("/:id", async (req, res) => {
     const action = await db.get(req.params.id)
     res.status(201).json(action)
   } catch (err) {
-    res.status(500).json({ message: 'Error getting users' })
+    res.status(500).json({ message: 'Error getting actions' })
   }
 });
 
